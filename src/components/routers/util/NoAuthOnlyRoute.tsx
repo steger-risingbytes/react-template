@@ -1,7 +1,7 @@
 import * as React from "react"
 import { Redirect, Route } from "react-router-dom"
 import { useRecoilState } from "recoil"
-import { Routes } from "../../../config/Routes"
+import { Routes } from "../../../config/routes"
 import { authStore } from "../../../stores/authStore"
 
 export function NoAuthOnlyRoute(props: {
