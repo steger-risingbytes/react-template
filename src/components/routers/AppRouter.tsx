@@ -8,11 +8,13 @@ export function AppRouter() {
 		<BrowserRouter>
 			<Switch>
                 
-				
 
+
+				{/* 404 - NOT FOUND  */}
 				<Route>
 					<NotFoundSite />
 				</Route>
+				
 
 			</Switch>
 		</BrowserRouter>
