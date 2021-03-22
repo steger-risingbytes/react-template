@@ -9,7 +9,7 @@ interface ICredentials {
     expiresIn: number
 }
 
-type IAuthStore = {
+export type IAuthStore = {
     credentials?: ICredentials
     isAuthenticated: boolean
 }
