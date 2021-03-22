@@ -21,6 +21,8 @@ module.exports = {
 		"@typescript-eslint"
 	],
 	"rules": {
+		"@typescript-eslint/explicit-module-boundary-types": "off",
+		"no-mixed-spaces-and-tabs": "off",
 		"indent": [
 			"error",
 			"tab"
