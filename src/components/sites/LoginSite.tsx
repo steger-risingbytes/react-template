@@ -5,6 +5,7 @@ import * as React from "react"
 import { CustomInputField } from "../ui/CustomInputField"
 import { useAPI } from "../../network/API"
 import Logo from "../../assets/images/RB-logo.svg"
+import { useErrorAction } from "../../stores/errorStore"
 
 interface ILoginValues {
     email: string
@@ -13,13 +14,17 @@ interface ILoginValues {
 
 export function LoginSite() {
 	const { PostAuthLogin } = useAPI()
+	const { toggleError } = useErrorAction()
 
 	const submit = async (model: ILoginValues) => {
 		try {
 			await PostAuthLogin(model.email, model.password)
 		}
 		catch(err) {
-			console.log(err)
+			toggleError({
+				message: "Network unreachable",
+				type: "ERROR"
+			})
 		}
 	}
 
