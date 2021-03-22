@@ -1,3 +1,6 @@
 export const Routes = {
-	ROOT: ""
+	ROOT: "/",
+	AUTH: {
+		LOGIN: "/auth/login"
+	}
 }
