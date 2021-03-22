@@ -1,7 +1,10 @@
 import * as React from "react"
+import { RecoilRoot } from "recoil"
 
 export function App() {
 	return (
-		<div>Hello World</div>
+		<RecoilRoot>
+			<div>Hello World</div>
+		</RecoilRoot>
 	)
 }
