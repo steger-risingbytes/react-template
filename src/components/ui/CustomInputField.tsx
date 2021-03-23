@@ -1,3 +1,4 @@
+import { FormControl, FormHelperText } from "@material-ui/core"
 import TextField, { TextFieldProps } from "@material-ui/core/TextField"
 import { FieldInputProps } from "formik"
 import * as React from "react"
@@ -22,7 +23,7 @@ export const CustomInputField = ({
 	const showError = isTouched && !!errorMessage
 
 	return (
-		<div style={style}>
+		<FormControl error={showError} style={style} fullWidth>
 			<TextField
 				label={required ? `${label} *` : label}
 				value={field.value}
@@ -36,11 +37,10 @@ export const CustomInputField = ({
 				margin="dense"
 				aria-label={props["aria-label"]}
 			/>
-			<span
+			<FormHelperText
 				style={{
-					color: "#f00",
 					display: "block",
-					minHeight: 18,
+					minHeight: 19,
 					width: "100%",
 					marginTop: 4,
 					marginBottom: 10,
@@ -48,7 +48,7 @@ export const CustomInputField = ({
 				}}
 			>
 				{showError && errorMessage}
-			</span>
-		</div>
+			</FormHelperText>
+		</FormControl>
 	)
 }

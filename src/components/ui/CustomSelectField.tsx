@@ -40,7 +40,19 @@ export const CustomSelectField = ({
 					)
 				})}
 			</Select>
-			<FormHelperText>{showError && errorMessage}</FormHelperText>
+			<FormHelperText
+				style={{
+					color: "#f00",
+					display: "block",
+					minHeight: 18,
+					width: "100%",
+					marginTop: 4,
+					marginBottom: 10,
+					fontSize: 12,
+				}}
+			>
+				{showError && errorMessage}
+			</FormHelperText>
 		</FormControl>
 	)
 }
