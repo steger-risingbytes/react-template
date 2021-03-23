@@ -14,17 +14,14 @@ interface ILoginValues {
 
 export function LoginSite() {
 	const { PostAuthLogin } = useAPI()
-	const { toggleError } = useErrorAction()
+	const { toggleNetworkError } = useErrorAction()
 
 	const submit = async (model: ILoginValues) => {
 		try {
 			await PostAuthLogin(model.email, model.password)
 		}
 		catch(err) {
-			toggleError({
-				message: "Network unreachable",
-				type: "ERROR"
-			})
+			toggleNetworkError("Network Unreachable", 6000)
 		}
 	}
 
