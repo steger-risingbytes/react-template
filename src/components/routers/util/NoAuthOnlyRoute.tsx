@@ -8,6 +8,7 @@ export function NoAuthOnlyRoute(props: {
     exact?: boolean
     path?: string
     children?: React.ReactNode
+	routeTo?: string
 }) {
 	const [auth] = useRecoilState(authStore)
 
@@ -23,7 +24,7 @@ export function NoAuthOnlyRoute(props: {
 			) : (
 				<Redirect 
 					to={{
-						pathname: Routes.ROOT
+						pathname: props.routeTo || Routes.ROOT
 					}}
 				/>
 			)}
