@@ -78,7 +78,7 @@ export function LoginSite() {
 						validationSchema={Yup.object().shape({
 							email: Yup.string()
 								.email("Ungültiger Wert")
-								.required("Dieses ist ein Pflichtfeld")
+								.required("Dies ist ein Pflichtfeld")
 								.trim(),
 							password: Yup.string()
 								.min(6, "Ungültiger Wert")
