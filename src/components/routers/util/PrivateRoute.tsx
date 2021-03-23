@@ -8,6 +8,7 @@ export function PrivateRoute(props: {
     exact?: boolean
     path?: string
     children?: React.ReactNode
+	redirect?: string
 }) {
 	const [auth] = useRecoilState(authStore)
 
@@ -23,7 +24,7 @@ export function PrivateRoute(props: {
 			) : (
 				<Redirect 
 					to={{
-						pathname: Routes.ROOT
+						pathname: props.redirect || Routes.ROOT
 					}}
 				/>
 			)}
