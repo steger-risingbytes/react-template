@@ -21,17 +21,28 @@ export const errorStore = atom<IErrorStore>({
 export function useErrorAction() {
 	const [, setError] = useRecoilState(errorStore)
 
-	return {
-		toggleError(error: IError, time?: number) {
+	const toggleError = (error: IError, time?: number) => {
+		setError({
+			display: true,
+			error
+		})
+		setTimeout(() => {
 			setError({
-				display: true,
-				error
+				display: false
 			})
-			setTimeout(() => {
-				setError({
-					display: false
-				})
-			}, time || 3000)
+		}, time || 3000)
+	}
+
+	return {
+
+		toggleError,
+
+		toggleNetworkError(message?: string, n?: number) {
+			toggleError({
+				message: message ? `Network Error - ${message}` : "Network Error",
+				type: "ERROR"
+			}, n)
 		}
+
 	}
 }
